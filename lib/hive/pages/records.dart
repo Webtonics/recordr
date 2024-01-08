@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hive_flutter/hive_flutter.dart';
+import 'package:recordr/hive/pages/record_details.dart';
 
 import '../../widget/card.dart';
 
@@ -31,15 +32,20 @@ class _ReportViewState extends State<ReportView> {
                   Map records = widget.db!.get(recordkey[index]);
                 return  Padding(
                   padding: const EdgeInsets.all(5.0),
-                  child: RecordCard(
-                    title: '${records['title']}',
-                    subtitle: " ${records['content']}",
-                    
-                    deleteF: () {
-                      print("working");
-                       widget.db!.delete(recordkey[index]);
+                  child: GestureDetector(
+                    onTap: () {
+                      Navigator.of(context).push(MaterialPageRoute(builder: (context)=> RecordDetailView(title: records["title"], content: records["content"], date: records['date'].toString(),),),);
                     },
-                    ),
+                    child: RecordCard(
+                      title: '${records['title']}',
+                      subtitle: " ${records['content']}",
+                      
+                      deleteF: () {
+                        print("working");
+                         widget.db!.delete(recordkey[index]);
+                      },
+                      ),
+                  ),
                 );
               },),
             ),

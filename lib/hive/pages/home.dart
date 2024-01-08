@@ -103,7 +103,7 @@ class _HomepageState extends State<Homepage> {
       ),
       body: _buildUi(),
       floatingActionButton: FloatingActionButton(onPressed: (){
-        showMydialog(context, "Title", "Contents");
+        showMydialog(context, "Title", "Content");
       }, child: const Icon(Icons.add_circle),),
     );
 
