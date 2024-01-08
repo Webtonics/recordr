@@ -31,29 +31,11 @@ class _HomepageState extends State<Homepage> {
     _titleController = TextEditingController();
     _contentController = TextEditingController();
   }
-  @override
-  Widget build(BuildContext context) {
-    return  Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.deepPurple,
-        title: const Text(
-          "Record It",
-          
-          style: TextStyle(
-            color: Colors.white,
-            fontSize: 14,
-            fontWeight: FontWeight.bold          
-          ),
-        ),
-        actions: [
-          IconButton(onPressed: (){
-            Navigator.of(context).push(MaterialPageRoute(builder: (context)=> const ReportView()));
-          }, icon: const Icon(Icons.receipt_rounded))
-        ],
-      ),
-      body: _buildUi(),
-      floatingActionButton: FloatingActionButton(onPressed: (){
-        showDialog(context: context, builder: (BuildContext context){
+  Future<void> showMydialog(BuildContext context, String title, String content){
+   
+    return showDialog(context: context, builder: (BuildContext context){
+       
+       
           return AlertDialog(
             title: const Text(" Add record"),
             content: Container(
@@ -64,17 +46,17 @@ class _HomepageState extends State<Homepage> {
                   
                   TextFormField(
                     controller: _titleController,
-                    decoration: const InputDecoration(
-                      label: Text("TITLE"),                 
-                      border: OutlineInputBorder(),
+                    decoration:  InputDecoration(
+                      label: Text(title),                 
+                      border: const OutlineInputBorder(),
                     ),
                   ),
                   myspacer,
                   TextFormField(
                     controller: _contentController,
-                    decoration: const InputDecoration(
-                      label: Text("CONTENT", ),  
-                      border: OutlineInputBorder(),
+                    decoration:  InputDecoration(
+                      label: Text(content, ),  
+                      border: const OutlineInputBorder(),
                     ),
                     maxLines: 15,
                   ),
@@ -98,6 +80,30 @@ class _HomepageState extends State<Homepage> {
             ],
           );
         });
+  }
+  @override
+  Widget build(BuildContext context) {
+    return  Scaffold(
+      appBar: AppBar(
+        backgroundColor: Colors.deepPurple,
+        title: const Text(
+          "Record It",
+          
+          style: TextStyle(
+            color: Colors.white,
+            fontSize: 14,
+            fontWeight: FontWeight.bold          
+          ),
+        ),
+        actions: [
+          IconButton(onPressed: (){
+            Navigator.of(context).push(MaterialPageRoute(builder: (context)=> const ReportView()));
+          }, icon: const Icon(Icons.receipt_rounded))
+        ],
+      ),
+      body: _buildUi(),
+      floatingActionButton: FloatingActionButton(onPressed: (){
+        showMydialog(context, "Title", "Contents");
       }, child: const Icon(Icons.add_circle),),
     );
 

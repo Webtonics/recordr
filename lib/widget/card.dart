@@ -17,7 +17,9 @@ class RecordCard extends StatelessWidget {
         borderRadius: BorderRadius.circular(21)
       ),
       child:  ListTile(
-        
+        onLongPress: () {
+          
+        },
         title:  Text(title, style: const TextStyle( fontSize: 18, fontWeight: FontWeight.w500),),
         subtitle:  Text(subtitle, overflow: TextOverflow.ellipsis,maxLines:2),
         trailing: IconButton(onPressed:deleteF, icon: const Icon(Icons.delete))
