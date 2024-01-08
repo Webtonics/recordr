@@ -34,8 +34,10 @@ class _ReportViewState extends State<ReportView> {
                   child: RecordCard(
                     title: '${records['title']}',
                     subtitle: " ${records['content']}",
+                    
                     deleteF: () {
-                      widget.db!.delete('$index');
+                      print("working");
+                       widget.db!.delete(recordkey[index]);
                     },
                     ),
                 );
