@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:recordr/widget/showdialog.dart';
+// import 'package:recordr/widget/showdialog.dart';
 
 class RecordDetailView extends StatefulWidget {
   const RecordDetailView({super.key, required this.title, required this.content, required this.date});
@@ -29,8 +29,8 @@ class _RecordDetailViewState extends State<RecordDetailView> {
         ),
       ),
       floatingActionButton: FloatingActionButton(onPressed: (){
-        const ShowMyDialog();
-      }, child: const Icon(Icons.add_circle),),
+        // const ShowMyDialog();
+      }, child: const Icon(Icons.edit_document),),
     );
   }
 }

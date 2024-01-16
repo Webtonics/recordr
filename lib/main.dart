@@ -12,7 +12,7 @@ void main() async{
   // step 1: init hive to the path in step 0
   Hive.init(documentdir.path);
 
-  print(documentdir);
+  // print(documentdir);
   runApp(
     const MyApp(),
   );
